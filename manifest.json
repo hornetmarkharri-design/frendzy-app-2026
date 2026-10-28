@@ -11,17 +11,9 @@
   "theme_color": "#713df4",
   "icons": [
     {
-"icons": [
-  {
-    "src": "/frendzy-app-2026/Copy%20of%20Untitled.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "any"
-  }
-]
-      "src": "/frendzy-app-2026/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/frendzy-app-2026/Copy%20of%20Untitled.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
