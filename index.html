@@ -407,6 +407,15 @@
     document.getElementById("profileName").textContent = name;
     alert("Your display name has been updated.");
   }
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register(
+      "/frendzy-app-2026/sw.js"
+    );
+  });
+}
+</script>
 </script>
 
 </body>
