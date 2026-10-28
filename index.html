@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frendzy App 2026</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f1ff;
+      color: #251b3d;
+    }
+
+    header {
+      background: #713df4;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 30px;
+    }
+
+    header p {
+      margin-top: 8px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      gap: 4px;
+      padding: 12px 4px;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      box-shadow: 0 2px 8px #0001;
+    }
+
+    button {
+      cursor: pointer;
+      font: inherit;
+    }
+
+    nav button {
+      background: transparent;
+      color: #713df4;
+      border: none;
+      padding: 8px 5px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 14px;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 3px 12px #32205a0d;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #713df4, #bb65ff);
+      color: white;
+      padding: 25px 20px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      line-height: 1.5;
+    }
+
+    h2, h3 {
+      margin-bottom: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd4ff;
+      border-radius: 10px;
+      margin: 8px 0;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    .primary {
+      background: #713df4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-weight: bold;
+    }
+
+    .secondary {
+      background: #eee8ff;
+      color: #5427cf;
+      border: none;
+      border-radius: 9px;
+      padding: 10px 13px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: #eee5ff;
+      border-radius: 50%;
+      font-size: 23px;
+    }
+
+    .person-info {
+      flex: 1;
+    }
+
+    .person-info p {
+      font-size: 13px;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    .post {
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .post-text {
+      margin: 14px 0;
+      white-space: pre-wrap;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .message {
+      background: #eee8ff;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 10px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 24px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💜 Frendzy</h1>
+  <p>Connect. Share. Make friends.</p>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">🏠 Home</button>
+  <button onclick="showPage('friends')">👥 Friends</button>
+  <button onclick="showPage('chat')">💬 Chat</button>
+  <button onclick="showPage('profile')">👤 Profile</button>
+</nav>
+
+<main>
+  <section id="home">
+    <div class="hero">
+      <h2>Your people. Your community.</h2>
+      <p>Welcome to Frendzy! Share your thoughts and discover new connections.</p>
+    </div>
+
+    <div class="card">
+      <h3>Create a post</h3>
+      <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+      <button class="primary" onclick="createPost()">Share post</button>
+    </div>
+
+    <div id="feed">
+      <article class="card post">
+        <div class="person">
+          <div class="avatar">💜</div>
+          <div class="person-info">
+            <strong>Frendzy Community</strong>
+            <p>Welcome to Frendzy</p>
+          </div>
+        </div>
+        <p class="post-text">This is your new space to connect, share ideas, and make friends! 🎉</p>
+        <div class="actions">
+          <button class="secondary" onclick="likePost(this)">💜 Like <span>0</span></button>
+          <button class="secondary" onclick="commentPost(this)">💬 Comment</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="friends" class="hidden">
+    <div class="card">
+      <h2>Discover Friends 👥</h2>
+      <p>Meet people in our sample community.</p>
+
+      <div class="person">
+        <div class="avatar">😎</div>
+        <div class="person-info">
+          <strong>Alex</strong>
+          <p>Enjoys meeting new people</p>
+        </div>
+        <button class="secondary" onclick="follow(this)">Add</button>
+      </div>
+
+      <div class="person">
+        <div class="avatar">🌻</div>
+        <div class="person-info">
+          <strong>Jamie</strong>
+          <p>Loves music and creativity</p>
+        </div>
+        <button class="secondary" onclick="follow(this)">Add</button>
+      </div>
+
+      <div class="person">
+        <div class="avatar">🚀</div>
+        <div class="person-info">
+          <strong>Sam</strong>
+          <p>Always exploring new ideas</p>
+        </div>
+        <button class="secondary" onclick="follow(this)">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="chat" class="hidden">
+    <div class="card">
+      <h2>Messages 💬</h2>
+      <p>Try the sample chat below.</p>
+      <div id="messages">
+        <div class="message"><strong>Frendzy Bot:</strong> Welcome! 👋</div>
+      </div>
+      <input id="messageInput" placeholder="Write a message...">
+      <button class="primary" onclick="sendMessage()">Send</button>
+      <p style="font-size:12px;color:#777;margin-top:12px">
+        This is a demo. Messages are not sent to other people.
+      </p>
+    </div>
+  </section>
+
+  <section id="profile" class="hidden">
+    <div class="card">
+      <h2>My Profile 👤</h2>
+      <div class="person">
+        <div class="avatar">💜</div>
+        <div class="person-info">
+          <strong id="profileName">Your name</strong>
+          <p>Frendzy member</p>
+        </div>
+      </div>
+      <label for="nameInput">Display name</label>
+      <input id="nameInput" placeholder="Enter your name">
+      <button class="primary" onclick="saveProfile()">Save profile</button>
+    </div>
+  </section>
+</main>
+
+<footer>Made with 💜 · Frendzy App 2026</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll("main section").forEach(function(section) {
+      section.classList.add("hidden");
+    });
+    document.getElementById(id).classList.remove("hidden");
+    window.scrollTo(0, 0);
+  }
+
+  function createPost() {
+    const input = document.getElementById("postInput");
+    const value = input.value.trim();
+
+    if (!value) {
+      alert("Write something before posting.");
+      return;
+    }
+
+    const article = document.createElement("article");
+    article.className = "card post";
+
+    const heading = document.createElement("strong");
+    heading.textContent = document.getElementById("profileName").textContent;
+
+    const paragraph = document.createElement("p");
+    paragraph.className = "post-text";
+    paragraph.textContent = value;
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const like = document.createElement("button");
+    like.className = "secondary";
+    like.innerHTML = "💜 Like <span>0</span>";
+    like.onclick = function() { likePost(like); };
+
+    const comment = document.createElement("button");
+    comment.className = "secondary";
+    comment.textContent = "💬 Comment";
+    comment.onclick = function() { commentPost(comment); };
+
+    actions.append(like, comment);
+    article.append(heading, paragraph, actions);
+    document.getElementById("feed").prepend(article);
+    input.value = "";
+  }
+
+  function likePost(button) {
+    const count = button.querySelector("span");
+    count.textContent = Number(count.textContent) + 1;
+  }
+
+  function commentPost(button) {
+    const value = prompt("Write your comment:");
+    if (!value || !value.trim()) return;
+
+    const comment = document.createElement("p");
+    comment.className = "post-text";
+    comment.textContent = "💬 " + value.trim();
+    button.closest(".post").appendChild(comment);
+  }
+
+  function follow(button) {
+    button.textContent = button.textContent === "Add" ? "Added ✓" : "Add";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("messageInput");
+    const value = input.value.trim();
+
+    if (!value) {
+      alert("Type a message first.");
+      return;
+    }
+
+    const message = document.createElement("div");
+    message.className = "message";
+
+    const name = document.createElement("strong");
+    name.textContent = "You: ";
+    message.append(name, document.createTextNode(value));
+
+    document.getElementById("messages").appendChild(message);
+    input.value = "";
+  }
+
+  function saveProfile() {
+    const name = document.getElementById("nameInput").value.trim();
+
+    if (!name) {
+      alert("Enter your display name.");
+      return;
+    }
+
+    document.getElementById("profileName").textContent = name;
+    alert("Your display name has been updated.");
+  }
+</script>
+
+</body>
+</html>
