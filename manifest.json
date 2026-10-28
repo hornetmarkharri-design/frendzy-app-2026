@@ -1,0 +1,13 @@
+
+{
+  "id": "/frendzy-app-2026/",
+  "name": "Frendzy App 2026",
+  "short_name": "Frendzy",
+  "description": "Connect, share, and make friends with Frendzy.",
+  "start_url": "/frendzy-app-2026/",
+  "scope": "/frendzy-app-2026/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f1ff",
+  "theme_color": "#713df4"
+}
